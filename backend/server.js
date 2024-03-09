@@ -1,7 +1,10 @@
 import express from "express";
 import dotenv from "dotenv";
+
 import authRoutes from "./routes/auth.routes.js"
 import messageRoutes from "./routes/message.routes.js"
+import userRoutes from "./routes/user.routes.js"
+
 import { connect } from "mongoose";
 import cookieParser from "cookie-parser";
 import connectToMongoDB from "./db/connectToMongoDB.js";
@@ -14,6 +17,7 @@ app.use(express.json()); //tp pasrse the incoming request from JSON payload (fro
 app.use(cookieParser());
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
+app.use("/api/users", userRoutes);
 
 // app.get("/", (req, res) => {
 //   //root rout http://localhost:3001/

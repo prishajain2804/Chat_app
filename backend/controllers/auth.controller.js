@@ -7,9 +7,9 @@ import generateTokenAndSetCookie from "../utils/generateToken.js";
 
 export const signup = async (req, res) =>{
     try{
-        const {fullName,username,password,confrimPassword, gender} = req.body;
+        const {fullName,username,password,confirmPassword, gender} = req.body;
 
-        if(password != confrimPassword){
+        if(password != confirmPassword){
             return res.status(400).json({error:"Passwords don't Match"})
         }
 
@@ -94,7 +94,7 @@ export const logout = (req, res) =>{
 try{
     res.cookie("jwt","",{maxAge:0})
 
-    res.status(200).json({error:"Logged out successfully"})
+    res.status(200).json({message:"Logged out successfully"})
 }catch(error){
     console.log("Error in logout controller");
 
